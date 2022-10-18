@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Register Page
+{% endblock %}
+{% block body %}
+
+<div class="container"><br>
+    <h4>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>Registration form</u></h4>
+    <form method="post">
+        {% csrf_token %}
+        <div class="mb-3 col-md-6">
+            <label for="exampleInputEmail1" class="form-label">Username</label>
+            <input name="username" type="text" class="form-control" id="exampleInputEmail1"
+                   aria-describedby="emailHelp" required>
+
+        </div>
+        <div class="mb-3 col-md-6">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input name="password" type="password" class="form-control" id="exampleInputPassword1" required>
+        </div>
+        <div class="mb-3 col-md-6">
+            <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+            <input name="password1" type="password" class="form-control" id="exampleInputPassword1" required>
+        </div>
+
+        <button type="submit" value="Register" class="btn btn-primary">Submit</button>
+        <br><br><br>
+    </form>
+
+    <div class="row" style="text-align: center;color:red;">
+        {% for i in messages %}
+        <h1 class="text-center">{{i}}</h1>
+
+        {% endfor %}
+    </div>
+    {% endblock %}
+</div>

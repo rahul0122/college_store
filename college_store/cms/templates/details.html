@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Details Page
+{% endblock %}
+{% block body %}
+<br><br>
+<div class="container">
+
+    <h5 style="text-align:center;">Welcome {{user.username}}</h5>
+</div>
+<br><br>
+<div class="container ml-3 ">
+    Please add your details
+
+    <form action="{% url 'cmsapp:person_add' %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Add details" class="btn btn-primary">
+    </form>
+    {% endblock %}
+</div>

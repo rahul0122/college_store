@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Login Page
+{% endblock %}
+
+{% block body %}
+<div class="container col-md-6"><br>
+
+    <h6 class="text-center"><u>Login form</u></h6>
+    <form method="post" action="">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Username</label>
+            <input name="username" type="text" class="form-control" id="exampleInputEmail1"
+                   aria-describedby="emailHelp" required>
+
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input name="password" type="password" class="form-control" id="exampleInputPassword1" required>
+        </div>
+
+        <button type="submit" value="Login" class="btn btn-primary">Submit</button>
+        <br><br><br>
+
+        Not registered ? Please <a href="{% url 'cmsapp:register' %}">Create an account</a>
+    </form>
+</div>
+<br><br>
+<div class="container">
+    <div class="row" style="text-align: center;color:red;">
+        {% for i in messages %}
+        <h5 class="text-center">{{i}}</h5>
+
+        {% endfor %}
+    </div>
+    {% endblock %}
+</div>
